@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tweet Analyzer</title>
+		<meta charset="UTF-8">
+		<!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		 <!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript" src="js/show-analyzed-results.js"></script> 
+		
+		<!--Let browser know website is optimized for mobile-->
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"/> -->
+		<meta name="viewport"/>
+
+	</head>
+	<body>
+
+	<nav>
+	<div class="nav-wrapper" id="top">
+	  <a href="#" class="brand-logo center">MCOPY Tweets Analysis Result</a>
+	</div>
+	</nav>
+
+	<div class="container">
+	  <div class="progress" id="loading" style="display:none;">
+	    <div class="indeterminate"></div>
+	  </div>
+
+	  <div  id="tweets-table" style="display:none;">
+	    <h5 id="filter_title"></h5>
+	    <table class="highlight centered">
+              <thead>
+		<tr>
+		  <th data-field="created_date"><i class='material-icons'>access_time</i></th>
+		  <th data-field="retweet_count"><i class='material-icons'>repeat</i></th>
+		  <th data-field="text"><i class='material-icons'>chat</i></th>
+		  <th data-field="media_url"><i class='material-icons'>link</i></th>
+		  <th data-field="print_id">PID</th>
+		</tr>
+              </thead>
+              <tbody id="tweets"></tbody>
+	    </table>
+	  </div>
+
+	  <div id="wordcloud" style="display:none;"><img id="wordcloud_img"/></div>
+	  <div id="chart"></div>
+	  <div>
+	    <h5>【日別特徴語】</h5>
+	    ※特徴語をクリックするとその単語を含むツイートを表示します<br />
+	    ※<i class='material-icons'>mood_bad</i><i class='material-icons'>mood</i>をクリックするとネガ or ポジのツイートを表示します<br />
+	    ※日にちをクリックするとWord Cloudを表示します<br />
+	    <table class="highlight centered">
+              <thead>
+		<tr>
+		  <th rowspan="2"><i class='material-icons'>date_range</i></th>
+		  <th colspan="10">特徴語</th>
+		  <th rowspan="2">ネガポジβ</th>
+		</tr>
+		<tr>
+		  <th data-field="word0">1</th>
+		  <th data-field="word1">2</th>
+		  <th data-field="word2">3</th>
+		  <th data-field="word3">4</th>
+		  <th data-field="word4">5</th>
+		  <th data-field="word5">6</th>
+		  <th data-field="word6">7</th>
+		  <th data-field="word7">8</th>
+		  <th data-field="word8">9</th>
+		  <th data-field="word9">10</th>
+		</tr>
+              </thead>
+              <tbody id="feature_words"></tbody>
+	    </table>
+	  </div>
+	</div>
+	<footer class="page-footer">
+	<div class="footer-copyright">
+		<div class="container">
+		© 2016 Copyright 
+		<a class="grey-text text-lighten-4" href="https://twitter.com/furuhito0519" target="_blank">@furuhito0519</a>
+		</div>
+	</div>
+	</footer>
+	</body>
+</html>
+
