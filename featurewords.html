@@ -33,18 +33,16 @@
 
 	  <div  id="tweets-table" style="display:none;">
 	    <h5 id="filter_title"></h5>
-	    <table class="highlight centered">
-              <thead>
-		<tr>
-		  <th data-field="created_date"><i class='material-icons'>access_time</i></th>
-		  <th data-field="retweet_count"><i class='material-icons'>repeat</i></th>
-		  <th data-field="text"><i class='material-icons'>chat</i></th>
-		  <th data-field="media_url"><i class='material-icons'>link</i></th>
-		  <th data-field="print_id">PID</th>
-		</tr>
-              </thead>
-              <tbody id="tweets"></tbody>
-	    </table>
+	    <div><div class="row center">
+	      <div class="col s1" data-field="created_date"><i class='material-icons'>access_time</i></div>
+	      <div class="col s1" data-field="retweet_count"><i class='material-icons'>repeat</i></div>
+	      <div class="col s7" data-field="text"><i class='material-icons'>chat</i></div>
+	      <div class="col s1" data-field="tweet_url"><i class='material-icons'>link</i></div>
+	      <div class="col s1" data-field="media_url"><i class='material-icons'>photo</i></div>
+	      <div class="col s1" data-field="print_id">PID</div>
+	    </div></div>
+	    <div class="divider"></div>
+	    <div id="tweets"></div>
 	  </div>
 
 	  <div id="wordcloud" style="display:none;"><img id="wordcloud_img"/></div>

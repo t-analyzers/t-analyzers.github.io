@@ -114,6 +114,7 @@ function show_tweets_with_filter(str_date, word, negaposi){
 
 	var table_contents_html = "";
 	var N = tweets.length;
+	var IMG_WIDTH = $(window).width()/20;
 	for(var i = 0; i < N; i++) {
 	    var condition = false;
 
@@ -131,32 +132,33 @@ function show_tweets_with_filter(str_date, word, negaposi){
 
 	    //conditionがtrueの場合表示する。
 	    if(condition){
-		table_contents_html +="<tr><td>" + tweets[i].created_datetime + "</td>" +
-		    "<td>" + tweets[i].retweet_count + "</td>" + 
-		    "<td>" + tweets[i].text + "</td>";
-
+		table_contents_html += "<div class='row center'>";
+		table_contents_html +="<div class='col s1'>" + tweets[i].created_datetime + "</div>" +
+		    "<div class='col s1'>" + tweets[i].retweet_count + "</div>" + 
+		    "<div class='col s7'>" + tweets[i].text + "</div>";
+		var printid = "";
+		var tweet_link = "https://twitter.com/"+tweets[i]["user.screen_name"]+"/status/"+tweets[i]["id"];
+		table_contents_html += "<div class='col s1'><a href='"+tweet_link+"' target='tweet'><i class='material-icons'>link</i></a></div>";
 		var img_link = "";
 		if(tweets[i].media_urls != undefined){
-		    img_link = "<a href='" + tweets[i].media_urls + "' target='_blank'><i class='material-icons'>photo</i></a>";
+		    img_link = "<img class='materialboxed' width='"+IMG_WIDTH+"' src='" + tweets[i].media_urls + "'>";
 		}
-		table_contents_html += "<td>" + img_link + "</td>";
-		
-		var printid = "";
+		table_contents_html += "<div class='col s1'>" + img_link + "</div>";
 		if(tweets[i].PrintID != undefined){
 		    printid = tweets[i].PrintID
-		 }
-		 table_contents_html += "<td>" + printid + "</td></tr>";
+		}
+		table_contents_html += "<div class='col s1'>" + printid + "</div>";
+		table_contents_html +="</div>";
 	    }
 	}
 
 	var tableContents = $("#tweets");
 	tableContents.html(table_contents_html);
-
+	$('.materialboxed').materialbox();
     });
 
     $("#tweets-table").hide();
     $("#loading").show();
-
     move_in_page("#top");
 }
 
