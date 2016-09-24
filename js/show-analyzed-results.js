@@ -139,7 +139,7 @@ function show_tweets_with_filter(str_date, word, negaposi){
 		var printid = "";
 		var tweet_link = "https://twitter.com/"+tweets[i]["user.screen_name"]+"/status/"+tweets[i]["id"];
 		table_contents_html += "<div class='col s1'><a href='"+tweet_link+"' target='tweet'><i class='material-icons'>link</i></a></div>";
-		var img_link = "";
+		var img_link = "　";
 		if(tweets[i].media_urls != undefined){
 		    img_link = "<img class='materialboxed' width='"+IMG_WIDTH+"' src='" + tweets[i].media_urls + "'>";
 		}
