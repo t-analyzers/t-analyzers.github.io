@@ -51,8 +51,17 @@ function show_tweets_img(file_path){
 
 	var cards = [];
 	for(var i = 0; i < tweets.length; i++){
-
-	    if(tweets[i].media_urls != undefined && tweets[i].retweet == undefined){ //retweetは除く
+	    var isIcon = false;
+/*	    if(tweets[i].hash_match != undefined){
+		if(tweets[i].hash_match.indexOf("icon") != -1){
+		    isIcon = true;
+		}
+		}*/
+	    if(tweets[i].hash_match != undefined && tweets[i].hash_match.indexOf("icon") != -1){
+		isIcon = true;
+	    }
+	    
+	    if(tweets[i].media_urls != undefined && tweets[i].retweet == undefined && isIcon == false){ //retweetは除く
 		var html_card = "";
 		var card_title = tweets[i]["user.screen_name"];
 		var pid = tweets[i]["PrintID"];
