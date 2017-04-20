@@ -94,7 +94,7 @@ function show_tweets_img(file_path){
 		    + card_title 
 		    + "<i class='material-icons right'>close</i></span>";
 		html_card += "<p>" + tweets[i]["text"] +"</p>";
-		if(labels != ""){
+		if(labels != "" && labels != undefined){
 			html_labels = "";
 			for(var j = 0; j < labels.length; j++){
 				html_labels +="<div class='chip'>" + ANNOTATION_LABEL_ELEMENTS[labels[j]] + "</div>";
