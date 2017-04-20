@@ -1,5 +1,6 @@
 var DATA_FOLDER_PATH = "data/";
 var FILELIST_NAME = "filelist-tweets.json";
+var ANNOTATION_LABEL_ELEMENTS = {"illust":"イラスト", "photo":"写真", "text":"文字", "calendar":"カレンダー", "cover":"カバー","placard":"プラカード", "manga":"漫画","capture":"キャプチャ","icon":"アイコン","craft":"ペーパークラフト"};
 
 $(document).ready(function(){
     var filelist_path = DATA_FOLDER_PATH + FILELIST_NAME;
@@ -65,9 +66,10 @@ function show_tweets_img(file_path){
 		var html_card = "";
 		var card_title = tweets[i]["user.screen_name"];
 		var pid = tweets[i]["PrintID"];
+		var labels = tweets[i]["labels"]
 
 		//col用とcard用のdiv start
-		html_card = "<div class='col s12 m6 l3'><div class='card'>";
+		html_card = "<div class='col s12 m6 l4'><div class='card'>";
 
 		//card-imageのタグ作成
 		html_card += "<div class='card-image'>";
@@ -92,6 +94,13 @@ function show_tweets_img(file_path){
 		    + card_title 
 		    + "<i class='material-icons right'>close</i></span>";
 		html_card += "<p>" + tweets[i]["text"] +"</p>";
+		if(labels != ""){
+			html_labels = "";
+			for(var j = 0; j < labels.length; j++){
+				html_labels +="<div class='chip'>" + ANNOTATION_LABEL_ELEMENTS[labels[j]] + "</div>";
+			}
+			html_card += html_labels;
+		}
 		html_card += "</div>";
 
 		//col用とcard用のdiv end
