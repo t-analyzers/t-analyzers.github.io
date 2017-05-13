@@ -1,6 +1,6 @@
 var DATA_FOLDER_PATH = "data/";
 var FILELIST_NAME = "filelist-tweets.json";
-var ANNOTATION_LABEL_ELEMENTS = {"illust":"イラスト", "photo":"写真", "text":"文字", "calendar":"カレンダー", "cover":"カバー","placard":"プラカード", "manga":"漫画","capture":"キャプチャ","icon":"アイコン","craft":"ペーパークラフト"};
+var ANNOTATION_LABEL_ELEMENTS = {"illust":"イラスト", "photo":"写真", "text":"文字", "calendar":"カレンダー", "cover":"カバー","placard":"ﾎﾟｽﾀｰ・ﾌﾟﾗｶｰﾄﾞ", "manga":"漫画","capture":"キャプチャ","icon":"アイコン","craft":"ﾍﾟｰﾊﾟｰｸﾗﾌﾄ"};
 
 $(document).ready(function(){
     var filelist_path = DATA_FOLDER_PATH + FILELIST_NAME;
@@ -94,7 +94,7 @@ function show_tweets_img(file_path){
 		    + card_title 
 		    + "<i class='material-icons right'>close</i></span>";
 		html_card += "<p>" + tweets[i]["text"] +"</p>";
-		if(labels != "" && labels != undefined){
+		if(labels != ""){
 			html_labels = "";
 			for(var j = 0; j < labels.length; j++){
 				html_labels +="<div class='chip'>" + ANNOTATION_LABEL_ELEMENTS[labels[j]] + "</div>";
