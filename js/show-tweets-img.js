@@ -66,7 +66,7 @@ function show_tweets_img(file_path){
 		var html_card = "";
 		var card_title = tweets[i]["user.screen_name"];
 		var pid = tweets[i]["PrintID"];
-		var labels = tweets[i]["labels"]
+		var labels = tweets[i]["labels"];
 
 		//col用とcard用のdiv start
 		html_card = "<div class='col s12 m6 l4'><div class='card'>";
@@ -94,7 +94,7 @@ function show_tweets_img(file_path){
 		    + card_title 
 		    + "<i class='material-icons right'>close</i></span>";
 		html_card += "<p>" + tweets[i]["text"] +"</p>";
-		if(labels != ""){
+		if(labels != undefined){
 			html_labels = "";
 			for(var j = 0; j < labels.length; j++){
 				html_labels +="<div class='chip'>" + ANNOTATION_LABEL_ELEMENTS[labels[j]] + "</div>";
