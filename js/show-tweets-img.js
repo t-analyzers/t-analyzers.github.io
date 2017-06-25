@@ -32,6 +32,13 @@ $(document).ready(function(){
 	$("#select-date").html(html_select);
 	$("#select-date").material_select();
 
+	//トップページに戻るボタンを配置
+	$("#to_toppage").on("click",function() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 'fast');
+            return false;});
+
 	//プルダウンで選択した日付の情報を表示する
 	$('.select-wrapper>ul>li>span').on('click',function(elem){
 	    var date = elem.target.innerText;
@@ -52,17 +59,14 @@ function show_tweets_img(file_path){
 
 	var cards = [];
 	for(var i = 0; i < tweets.length; i++){
-	    var isIcon = false;
-/*	    if(tweets[i].hash_match != undefined){
-		if(tweets[i].hash_match.indexOf("icon") != -1){
-		    isIcon = true;
-		}
-		}*/
-	    if(tweets[i].hash_match != undefined && tweets[i].hash_match.indexOf("icon") != -1){
-		isIcon = true;
+	    var dontShow = false;
+		var dont_show_condition = tweets[i].hash_match != undefined 
+			&& ((tweets[i].hash_match.indexOf("icon") != -1) || (tweets[i].hash_match.indexOf("exclude") != -1));
+	    if(dont_show_condition){
+			dontShow = true;
 	    }
 	    
-	    if(tweets[i].media_urls != undefined && tweets[i].retweet == undefined && isIcon == false){ //retweetは除く
+	    if(tweets[i].media_urls != undefined && tweets[i].retweet == undefined && dontShow == false){ //retweetは除く
 		var html_card = "";
 		var card_title = tweets[i]["user.screen_name"];
 		var pid = tweets[i]["PrintID"];
