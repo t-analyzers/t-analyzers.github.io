@@ -33,7 +33,19 @@
 	      </select>
 	      <label>日付</label>
 	    </div>
-	    <div id="img-count" class="col s3" style="text-align:center;margin-top:20px;"></div>
+	    <div id="img-count" class="col s2" style="text-align:center;margin-top:20px;"></div>
+	    <div id="labels" class="col s4"> 
+		<form action="#">
+		<input type="checkbox" class="labels-all" id="all" checked="checked" />
+			<label for="all">すべて</label> <br />
+		<input type="checkbox" class="labels" value="illust" id="illust" disabled="disabled" checked="checked" />
+			<label for="illust">イラスト</label>
+		<input type="checkbox" class="labels" value="text" id="text"  disabled="disabled" />
+			<label for="text">文字</label>
+		<input type="checkbox" class="labels" value="placard" id="placard"  disabled="disabled" />
+			<label for="placard">ﾌﾟﾗｶｰﾄﾞ・ﾎﾟｽﾀｰ</label>
+		</form>
+	    </div>
 	  </div>
 
 	  <div class="row" id="loading" style="display:none;"><div class="col s6 offset-s6">
